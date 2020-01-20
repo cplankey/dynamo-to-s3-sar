@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  dynamo-to-s3
+
+  Sample SAM Template for dynamo-to-s3
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 300
+
+Parameters: 
+    BucketNameParameter: 
+      Type: String
+    TableNameParameter: 
+      Type: String
+
+Resources:
+  DynamoToS3Function:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: dynamo-to-s3/
+      Handler: app.lambdaHandler
+      Runtime: nodejs12.x
+      Environment:
+            Variables:
+                BUCKET_NAME: !Ref BucketNameParameter
+                TABLE_NAME: !Ref TableNameParameter
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TableNameParameter
+        - DynamoDBCrudPolicy:
+            BucketName: !Ref BucketNameParameter
+
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  DynamoToS3Function:
+    Description: "Dynamo to S3 Function ARN"
+    Value: !GetAtt DynamoToS3Function.Arn
+  DynamoToS3FunctionIamRole:
+    Description: "Implicit IAM Role created for lambda"
+    Value: !GetAtt DynamoToS3Function.Arn

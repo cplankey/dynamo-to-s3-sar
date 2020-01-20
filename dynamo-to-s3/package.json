@@ -1,0 +1,9 @@
+{
+  "name": "Dynamo to S3",
+  "version": "1.0.0",
+  "description": "Takes Dynamo contents and writes them to S3 bucket",
+  "main": "app.js",
+  "repository": "https://github.com/cplankey/dynamo-to-s3-sar",
+  "author": "Chris Plankey",
+  "license": "MIT"
+}
