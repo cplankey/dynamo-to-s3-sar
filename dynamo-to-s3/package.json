@@ -1,5 +1,5 @@
 {
-  "name": "Dynamo to S3",
+  "name": "dynamo-to-s3",
   "version": "1.0.0",
   "description": "Takes Dynamo contents and writes them to S3 bucket",
   "main": "app.js",

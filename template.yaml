@@ -30,7 +30,7 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref TableNameParameter
-        - DynamoDBCrudPolicy:
+        - S3CrudPolicy:
             BucketName: !Ref BucketNameParameter
 
 

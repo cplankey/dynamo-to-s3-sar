@@ -1,9 +1,0 @@
-{
-  "name": "Dynamo to S3",
-  "version": "1.0.0",
-  "description": "Takes Dynamo contents and writes them to S3 bucket",
-  "main": "app.js",
-  "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
-  "author": "SAM CLI",
-  "license": "MIT"
-}
